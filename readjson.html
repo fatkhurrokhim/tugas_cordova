@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var url = "https://fatkhurrokhim.000webhostapp.com/tugas_7/www/json.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var id = field.id;
+                var nama=field.nama;
+                var nomorhp=field.nomorhp;
+                var alamat=field.alamat;
+              
+                
+                $("#listview").append("<a class='item' href='form.html?id=" + id + "&nama=" + nama + "&nomorhp=" + nomorhp + "&alamat=" + alamat +  "'><h2>" + nama + " </h2><h2>" + nomorhp + " </h2><h2>" + alamat +  "</p></a>");
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <a href="index.html" class="button button-clear">Home</a>
+        <h1 class="title">Read Database (JSON)</h1>
+    </div>
+    <br/>
+    <br/>
+    <ul class="list" id="listview">
+    </ul>
+</body>
+
+</html>
